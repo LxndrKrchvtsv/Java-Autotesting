@@ -1,0 +1,1 @@
+![Passed tests.png](assets/Passed%20tests.png)
