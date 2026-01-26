@@ -1,13 +1,12 @@
 package geometry;
 
 public class LineLogic {
-	// Direct coefficients -3x + 5y - 2 = 0
 	private static final int A = -3;
 	private static final int B = 5;
 	private static final int C = -2;
 
 	public double calculateFunction(int x, int y) {
-		return A * x + B * y + C;
+		return (long)A * x + (long)B * y + C;
 	}
 
 	public String getRelativePosition(int x1, int y1, int x2, int y2) {
@@ -16,19 +15,19 @@ public class LineLogic {
 
 		if (f1 == 0 && f2 == 0) {
 			return "The segment lies on the line";
-		} else if (f1 * f2 < 0 || (f1 == 0 && f2 != 0) || (f1 != 0 && f2 == 0)) {
-			return "ONE common point";
-		} else if (f1 * f2 > 0) {
-			return "No common points";
 		}
-		return "Intersection";
+
+		if (f1 * f2 < 0 || (f1 == 0 && f2 != 0) || (f2 == 0 && f1 != 0)) {
+			return "ONE common point";
+		}
+		return "No common points";
 	}
 
 	public boolean isPerpendicular(int x1, int y1, int x2, int y2) {
-		int vx = x2 - x1;
-		int vy = y2 - y1;
-		// Direction vector straight (B, -A) -> (5, 3)
-		return (5 * vx + 3 * vy) == 0;
+		int dx = x2 - x1;
+		int dy = y2 - y1;
+
+		return (long)dx * 5 == (long)dy * -3;
 	}
 
 	public String checkEndpoints(int x1, int y1, int x2, int y2) {
