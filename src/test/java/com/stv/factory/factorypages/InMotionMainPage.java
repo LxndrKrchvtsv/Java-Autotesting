@@ -11,7 +11,7 @@ public class InMotionMainPage {
 	@FindBy(id = "onetrust-accept-btn-handler")
 	private WebElement acceptCookiesBtn;
 
-	@FindBy(xpath = "//div[@id='imh-main-menu']//a[@id='phoneDropDown' and contains(normalize-space(), 'Contact Us')]")
+	@FindBy(id = "phoneDropDown")
 	private WebElement contactUsMenuItem;
 
 	public InMotionMainPage(WebDriver driver) {
@@ -21,7 +21,7 @@ public class InMotionMainPage {
 
 	public InMotionMainPage acceptCookiesIfPresent() {
 		try {
-			acceptCookiesBtn.click();
+			if (acceptCookiesBtn.isDisplayed()) acceptCookiesBtn.click();
 		} catch (Exception e) {
 			System.out.println("Cookies banner not found");
 		}
