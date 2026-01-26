@@ -32,4 +32,18 @@ public class InMotionMainPage {
 		contactUsMenuItem.click();
 		return new InMotionContactUsPage(driver);
 	}
+
+	public void clickOnHostingLink(String linkText) {
+		WebElement link = driver.findElement(org.openqa.selenium.By.partialLinkText(linkText));
+		link.click();
+	}
+
+	public void clickOnLinkByText(String linkText) {
+		try { Thread.sleep(1000); } catch (InterruptedException e) {}
+
+		org.openqa.selenium.WebElement link = driver.findElement(org.openqa.selenium.By.partialLinkText(linkText));
+
+		org.openqa.selenium.JavascriptExecutor js = (org.openqa.selenium.JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", link);
+	}
 }
