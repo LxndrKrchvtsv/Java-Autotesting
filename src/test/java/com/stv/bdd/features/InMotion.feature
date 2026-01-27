@@ -1,3 +1,4 @@
+@task6
 Feature: InMotion Hosting UI Tests
 
   Background:

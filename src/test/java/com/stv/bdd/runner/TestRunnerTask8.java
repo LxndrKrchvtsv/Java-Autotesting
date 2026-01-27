@@ -6,8 +6,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		features = "src/test/java/com/stv/bdd/features",
 		glue = "com.stv.bdd.steps",
-		tags = "@task6",
+		tags = "@task8",
 		plugin = {"pretty", "html:target/cucumber-reports.html"}
 )
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class TestRunnerTask8 extends AbstractTestNGCucumberTests {
 }
