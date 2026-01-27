@@ -13,7 +13,6 @@ public class PostApiTest extends BaseApiTest {
 		Response response = postService.getAllPosts();
 
 		response.then().statusCode(200);
-
 		List<Post> posts = response.jsonPath().getList("", Post.class);
 		Assert.assertFalse(posts.isEmpty(), "The list of posts must not be empty");
 
