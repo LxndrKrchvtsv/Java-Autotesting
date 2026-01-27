@@ -13,8 +13,10 @@ Feature: InMotion Hosting Advanced Interactions
     When The user navigates back using the browser button
     Then The Main page is displayed correctly
 
-  Scenario: Talk With an Expert interaction
-    When The user clicks "Talk With an Expert" on Main page
+  Scenario: Talk with an Expert interaction
+    When The user clicks "Talk with an Expert" on Main page
     Then The expert window should be displayed
-    And The user tries to close it by clicking "Talk With an Expert" again
-    And The user closes the expert window via browser close button
+    When The user tries to close it by clicking "Talk with an Expert"
+    Then The expert window should be re-opened
+    When The user closes the expert window via browser close button
+    Then The expert window should be closed and focus should be returned to Main page
